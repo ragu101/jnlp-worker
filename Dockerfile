@@ -1,7 +1,7 @@
 FROM androidsdk/android-30
-RUN apt install openssh-server -y \
-    && systemctl enable ssh \
-    && systemctl start ssh
+RUN apt-get update \  
+    && apt-get install openssh-server -y \
+    && service ssh start
 RUN mkdir -p /root/.ssh \
     && chmod 0700 /root/.ssh \
     && passwd -u root \
